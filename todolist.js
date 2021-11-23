@@ -22,6 +22,13 @@ function update(){
     //     localStorage.setItem('itemsJson', JSON.stringify(itemJsonArr));
     // }
 
+    // if (localStorage.getItem('itemsJson') == null){
+    //     return;
+    // }
+   // else {
+       if(localStorage.getItem('itemsJson') == null){
+           return;
+       }
     console.log("hello");
     let  itemJsonArrStr = localStorage.getItem('itemsJson');
     let  itemJsonArr = JSON.parse(itemJsonArrStr);
@@ -44,6 +51,7 @@ function update(){
 
     console.log("hello");
     tableBody.innerHTML = str;
+//}
 
 
 }
@@ -92,8 +100,20 @@ function getUpdate(){
 
 
 }
+
+function clearLocalStorage(){
+    console.log("clearing local storage")
+    localStorage.clear();
+    localStorage.setItem('itemsJson', `[]` );
+    update();
+}
 update();
 
 add.addEventListener("click", getUpdate);
-//clear.addEventListener("click", )
+
+
+//this is clear_feature branch
+
+
+
 
